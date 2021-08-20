@@ -1,0 +1,221 @@
+font-family: "Bebas Neue Cyrillic";
+  src: local("Bebas Neue Cyrillic"), local("Bebas Neue Cyrillic"),
+    url("../fonts/BebasNeueRegular.woff2") format("woff2"),
+    url("../fonts/BebasNeueRegular.woff") format("woff")
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  box-sizing: border-box; /*позволяет правильно считать ширину и длину элементов для всех на странице это правило */
+}
+.body {
+  font-family: "Roboto", sans-serif;
+}
+.header {
+  background-color: #635854;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 4px solid #3596f5; /* полоска синяя снизу*/
+}
+.navbar {
+  max-width: 1280px;
+  margin: auto;
+  display: flex; /* сделали блок гибким*/
+  justify-content: space-between; /*расставили элементы по краям*/
+  align-items: center;
+}
+.navbar-menu {
+  margin: 0; /* отключаем внешние отступы */
+  padding: 0; /* отключаем внутрение отступы */
+  list-style: none; /* отключаем точки у списка*/
+  display: flex; /* сделали блок гибким, элементы выстроились в линию*/
+  text-align: center; /* сделали чтобы в центре все эелементы*/
+}
+.navbar-item {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.navbar-link {
+  text-decoration: none; /* отключаем подчеркивание текста ссылок*/
+  color: #fff; /*делаем белый цвет текста*/
+}
+
+.navbar-contacts {
+  text-align: right;
+  color: #fff;
+  margin-bottom: 4px; /*отступ номера телефона*/
+}
+.navbar-text {
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+}
+.navbar-phone {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+.main {
+  max-width: 1280px;
+  margin: auto;
+  padding-top: 54px;
+  display: flex;
+}
+.main-info {
+  flex-grow: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /*разбрасываем элементы по краям*/
+}
+
+.home-image path {
+  /*прописываем для каждого этажа*/
+  opacity: 0; /*прописываем прозрачность каждого этажа, при нуле все прозрачные*/
+  cursor: pointer; /*при наведении курсор будет в виде пальца*/
+}
+.home-image path:hover {
+  opacity: 1; /*прозрачность меняем на единицу*/
+}
+
+path.current-floor {
+  opacity: 1;
+}
+
+
+.counter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counter-button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.counter-arrow-down {
+  transform: rotateX(180deg);
+}
+.main-tytle {
+  margin: 0;
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  font-weight: normal;
+  font-size: 37px;
+  line-height: 44px;
+  color: #635854;
+}
+.floor-counter {
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  color: #635854;
+  font-weight: normal;
+  font-size: 124px;
+  margin-top: 10px;
+}
+.button-primary {
+  background: #3596f5;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  cursor: pointer;
+}
+.modal {
+  position: fixed; /* фиксированная позиция окна поверх всего остального контента сайта*/
+  left: 0; /* приклеиваем к левому краю*/
+  top: 0; /* приклеиваем к левому краю и к верху*/
+  width: 100%; /* ширина 100%*/
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /*полупрозрачный фоновый черный цвет подожки с фигмы взято*/
+  display: flex; /* гибким сделаем родительский элемент*/
+  justify-content: center;
+  align-items: center; /* выровнять по горизонтали и по вертикали*/
+  opacity: 0; /*скрываем окно по умолчанию на сайте,полностью прозрачное*/
+  transform: scale(0); /*оно сожмётся в ноль, его не будет видно на сайте вообще*/
+  transition: opacity 0.2s;/*добавляем плавность коно появится плавно в течение 0,2 с*/
+}
+.is-open { 
+  opacity: 1;
+  transform: scale(1);
+} /*чтобы окно появилось присваиваем ему специальный класс*/
+
+.modal-dialog {
+  position: relative;
+  max-width: 1000px;
+  min-height: 565px;
+  background-color: #fff;
+  flex-grow: 1;
+  display: flex;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: transform 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+}
+.is-open > .modal-dialog{
+  opacity: 1;
+   transform: translateY(0);
+}
+.modal-image {
+  background-color: #EBEBEB;
+  width: 60%;
+  text-align: center; /* выровнять вест текст и картинки по центру*/ 
+  padding: 50px; /* по краям 50 пикселей отступов*/
+}
+.flats path{
+  opacity: 0;
+  cursor: pointer;
+}
+.flats path:hover{ /* подсвечиваются квартиры*/
+  opacity: 1;
+}
+.modal-title { /* ЭТАЖ номер и выберите квартиру*/
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  color: #000000;
+}
+.modal-info {
+  width:40%;
+  padding: 50px; 46 px;
+}
+.flat-list {
+  padding:0;
+  list-style: none;
+  margin-top: 55px;
+}
+.flat-item {
+  margin-bottom: 10px;
+}
+.flat-link {
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  text-decoration: none;
+}
+.flat-link:hover {
+  color: #3596f5;
+  text-decoration: underline;
+}
+.modal-alert {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  margin-top: 56px;
+}
+.modal-close-button {
+  position: absolute;
+  right: 27px;
+  top: 38px;;
+  cursor: pointer;
+  border: none;
+  background-color:#fff;
+}
